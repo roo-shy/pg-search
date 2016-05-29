@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
 
   get 'session/new' => 'sessions#new', as: :sign_in
- post 'session/new' => 'sessions#create'
- delete 'session' => 'sessions#delete', as: :sign_out
+  post 'session/new' => 'sessions#create'
+  delete 'session' => 'sessions#delete', as: :sign_out
 
- get 'users/new' => 'users#new', as: :new_user
- post 'users' => 'users#create', as: :users
- get 'users/:confirm_token/verify' => 'users#verify', as: :verify_user
+  get 'users/new' => 'users#new', as: :new_user
+  post 'users' => 'users#create', as: :users
+  get 'users/:confirm_token/verify' => 'users#verify', as: :verify_user
 
- root 'posts#index'
-get 'posts/:id' => 'posts#show', as: :speech
-post 'posts/:id/share' => 'posts#share', as: :share_speech
-get 'users/pending' => 'users#confirm_pending', as: :confirm_pending
+  root 'posts#index'
+  get 'posts/:id' => 'posts#show', as: :speech
+  post 'posts/:id/share' => 'posts#share', as: :share_speech
+  get 'users/pending' => 'users#confirm_pending', as: :confirm_pending
 
-namespace :api do
+ namespace :api do
   get "posts" => 'posts#index'
   post 'posts' => 'posts#create'
   get 'authors' => 'posts#authors'
   get 'posts/:id' => 'posts#show'
-end
-end
+ end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

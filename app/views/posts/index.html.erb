@@ -1,0 +1,19 @@
+<p>
+  Hi
+  <%current_user.email%>
+</p>
+<%=form_tag root_path, method: :get do %>
+<%=text_field_tag  :search, params[:search] %>
+<%=submit_tag "Search" %>
+<% end %>
+
+<h1>
+  Posts
+  <%= plurilize @posts.count, 'result' %></h1>
+
+<% @posts.each do |speech| %>
+<h1><%=link_to post.title, post_path(id: post.id)%>
+  by
+  <%=post.author%></h1>
+<blockquote>
+  <%= highlight excerpt(speech.content, params[:search]), params[:search] %></blockquote>
