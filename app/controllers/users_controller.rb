@@ -17,7 +17,13 @@ class UsersController < ApplicationController
    end
 
   def verify
-    
+    @user = User.find_by confirm_token: params[:confirm_token]
+    if @user.present?
+      @user.update confirmed: true, confirm_token: nil
+      redirect_to root_path
+    else
+      render :confirm_pending
+    end
   end
 
   def confirm_pending
