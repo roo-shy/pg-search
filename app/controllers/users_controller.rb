@@ -5,9 +5,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new params.require(:user).permit(:email, :password)
-  
-
-  end
+    @user.confirm_token = SecureRandom.hex
+    if @user.save
+      # Send a confirmation link to the user
+      UserMailer.confirmation(@user).deliver_now
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      render :new
+    end
+   end
 
   def verify
   end
