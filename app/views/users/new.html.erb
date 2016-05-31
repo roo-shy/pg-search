@@ -1,0 +1,22 @@
+<h1>Register</h1>
+
+<% @user.errors.full_messages.each do |error| %>
+<li><%= error %></li>
+<% end %>
+
+<%= form_for @user do |f| %>
+<div class="">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+
+
+<div class="">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+<div class="">
+  <%= f.submit %>
+</div>
+<% end %>
