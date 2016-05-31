@@ -17,6 +17,7 @@ class UsersController < ApplicationController
    end
 
   def verify
+    
   end
 
   def confirm_pending
