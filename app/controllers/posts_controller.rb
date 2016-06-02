@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     search_text = params[:search]
     @posts = Post.all
     if search_text.present?
-      @posts = @posts.search.all(params[:search])
+      @posts = @posts.search_all(params[:search])
   end
 end
 
