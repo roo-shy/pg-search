@@ -1,0 +1,4 @@
+<h1><%=post.title%> by <%= @post.author%></h1>
+
+<%= link_to 'Share This Post', share_post_path(id: @post.id), method: :post %>
+<%= simple_format @post.content %>
