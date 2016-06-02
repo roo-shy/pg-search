@@ -3,12 +3,12 @@
   Hello <%= @user.email %>
 </p>
 <p>
-  Please click to confirm your account
+  Please click <%= link_to 'this link', verify_user_url(confirm_token: @user.confirm_token) %> to confirm your account
 </p>
 
 <p>
   Otherwise paste in the following to your browser window: </br>
-  
+<%= verify_user_url(confirm_token: @user.confirm_token) %>
 </p>
 
 <p>

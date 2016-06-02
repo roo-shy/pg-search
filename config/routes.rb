@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  default_url_options :host => "localhost:3000"
   get 'session/new' => 'sessions#new', as: :sign_in
   post 'session/new' => 'sessions#create'
   delete 'session' => 'sessions#delete', as: :sign_out

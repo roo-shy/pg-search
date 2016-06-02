@@ -10,11 +10,11 @@ class Post < ActiveRecord::Base
                     :author,
                     :content
                   ],
-                  :using => {}
+                  :using => {
                     :tsearch => {
-                    :prefix => true,
-                    :negation =>true,
-                    :dictionary => "english"
+                      :prefix => true,
+                      :negation =>true,
+                      :dictionary => "english"
+                      }
                     }
-                  }
 end
