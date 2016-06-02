@@ -22,9 +22,10 @@ end
 
   def share
     @post = Post.find_by id: params[:id]
-  end
+
   #email this email via email to someone's email
   PostsMailer.share(@post).deliver_now
 
   redirect_to root_path
  end
+end

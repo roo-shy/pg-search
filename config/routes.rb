@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'users/:confirm_token/verify' => 'users#verify', as: :verify_user
 
   root 'posts#index'
-  get 'posts/:id' => 'posts#show', as: :speech
-  post 'posts/:id/share' => 'posts#share', as: :share_speech
+  get 'posts/:id' => 'posts#show', as: :post
+  post 'posts/:id/share' => 'posts#share', as: :share_post
   get 'users/pending' => 'users#confirm_pending', as: :confirm_pending
 
  namespace :api do
