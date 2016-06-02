@@ -22,5 +22,14 @@ module PgSearch
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-  end
-end
+
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+          allow do
+            origins '*'
+            resource '*', :headers => :any, :methods => [:get, :post, :options]
+          end
+        end
+      end
+    end
