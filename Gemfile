@@ -49,3 +49,4 @@ group :production do
 end
 gem 'pg_search'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'materialize-sass'

@@ -1,4 +1,13 @@
-<h1>Register</h1>
+<div class="container">
+<nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="#" class="breadcrumb">Sign In</a>
+        <a href="#" class="breadcrumb">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+<h4>Register</h4>
 
 <% @user.errors.full_messages.each do |error| %>
 <li><%= error %></li>
@@ -20,3 +29,5 @@
   <%= f.submit %>
 </div>
 <% end %>
+
+</div>
